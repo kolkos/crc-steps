@@ -4,6 +4,11 @@ These are more general OpenShift commands
 [Source](https://docs.openshift.com/container-platform/4.2/storage/persistent_storage/persistent-storage-local.html)
 
 ## Adding storage
+This chapter will describe how to use persistent storage in your project
+
+### Installing the 
+
+
 First login as admin with the password you received when starting CRC. 
 
 ```
@@ -17,5 +22,6 @@ oc new-project local-storage
 
 Apply the yaml file
 ```
-
+oc apply -f https://raw.githubusercontent.com/kolkos/crc-steps/main/configuration/local-storage.yaml
 ```
+
