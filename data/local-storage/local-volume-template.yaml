@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: "local-volume-template"
+parameters:
+  - name: DEVICE
+    description: Path to the partition you wish to use
+    required: true
+  - name: FILE_SYSTEM
+    description: File System of the partition
+    required: true
+objects:
+- apiVersion: "local.storage.openshift.io/v1"
+  kind: "LocalVolume"
+  metadata:
+    name: "local-disks"
+    namespace: "local-storage" 
+  spec:
+    storageClassDevices:
+      - storageClassName: "local-sc"
+        volumeMode: Filesystem 
+        fsType: ${FILE_SYSTEM} 
+        devicePaths: 
+          - ${DEVICE}
